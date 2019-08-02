@@ -25,13 +25,5 @@ public class Market {
 
 };
 
-public void sortEmployees(){
- for(int i = 0; i<employees.size();i++){
-    // if(employees.listIterator())
-
-    }
-
-
-}
 
 }

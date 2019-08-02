@@ -4,22 +4,28 @@ public class Main {
     public static void main(String[] args) {
 Market market = new Market();
 for(int i = 0; i<25; i++){
-    market.getEmployees().add(new Employee(i+5.0, WageType.HOURLY));
+    market.getEmployees().add(new Employee((Integer.toString(i+5)), i+5.0, WageType.HOURLY));
 }
 
         for(int i = 0; i<25; i++){
-             market.getEmployees().add(new Employee(i + 5.0, WageType.FIXED));
+             market.getEmployees().add(new Employee((Integer.toString(i+5)),(i + 5.0), WageType.FIXED));
         }
         System.out.println("Average monthly salary is: " + (int)market.getAverageMonthlySalary());
 
-     //   market.sortEmployees(); need to be changed
+     //   Problem A
+        Collections.sort(market.getEmployees(), new Comparator<Employee>() {
+            @Override
+            public int compare(Employee o1, Employee o2) {
+                if(o1.getSalary()==o2.getSalary()) return o1.getName().compareTo(o2.getName());
+                return (int)(o1.getSalary()-o2.getSalary());
+            }
+        });
         System.out.println("Sorted employees: \n" + market.getEmployees());
-
 
 
         ListIterator<Employee> it = market.getEmployees().listIterator();
         //Problem B
-        System.out.println("ID of first 5 employees");
+        System.out.println("Information of first 5 employees");
        if(market.getEmployees().size()>=5) for(int i = 0; i<5;i++){
             System.out.println(it.next());
         }
@@ -28,7 +34,7 @@ for(int i = 0; i<25; i++){
         System.out.println("ID of 3 last employees: ");
         while(it.hasNext()) it.next();
             for(int i = 0; i<3;i++){
-                System.out.println(it.previous());
+                System.out.println(it.previous().hashCode());
         }
 
 

@@ -1,14 +1,25 @@
 import java.util.Comparator;
 
 public class Employee {
+    private String name;
 private Wage wage = new Wage();
 
 Employee(){
 }
-Employee(Double salary, WageType wageType){
+Employee(String name, Double salary, WageType wageType){
+    this.setName(name);
     this.wage.setSalary(salary);
     this.wage.setWageType(wageType);
 }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+    this.name = name;
+    }
+
     public double getSalary() {
         return wage.getSalary();
     }
@@ -26,10 +37,12 @@ Employee(Double salary, WageType wageType){
     @Override
     public String toString() {
         return "Employee{" +
+                "name=" + name +
                 "wage=" + wage +
                 "wageType=" + this.wage.getWageType()+
                 "}\n";
     }
+
 
 }
 
