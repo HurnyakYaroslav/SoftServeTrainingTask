@@ -1,7 +1,4 @@
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.LinkedList;
+import java.util.*;
 
 public class Market {
   private  LinkedList<Employee> employees;
@@ -9,7 +6,7 @@ public class Market {
   Market(){
       employees= new LinkedList<>();
   }
-    public Collection<Employee> getEmployees() {
+    public LinkedList<Employee> getEmployees() {
         return employees;
     }
 
@@ -29,13 +26,10 @@ public class Market {
 };
 
 public void sortEmployees(){
-    Collections.sort(employees,  new Comparator<Employee>() {
-        @Override
-        public int compare(Employee o1, Employee o2) {
-            if(o1.getWage().getSalary()>o2.getWage().getSalary()) return 1;
-            else return 0;
-        }
-    });
+ for(int i = 0; i<employees.size();i++){
+    // if(employees.listIterator())
+
+    }
 
 
 }

@@ -28,7 +28,7 @@ Employee(Double salary, WageType wageType){
         return "Employee{" +
                 "wage=" + wage +
                 "wageType=" + this.wage.getWageType()+
-                '}';
+                "}\n";
     }
 
 }
