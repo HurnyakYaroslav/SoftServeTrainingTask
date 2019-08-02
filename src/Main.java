@@ -12,7 +12,7 @@ for(int i = 0; i<25; i++){
         }
         System.out.println("Average monthly salary is: " + (int)market.getAverageMonthlySalary());
 
-     //   market.sortEmployees();
+     //   market.sortEmployees(); need to be changed
         System.out.println("Sorted employees: \n" + market.getEmployees());
 
 
