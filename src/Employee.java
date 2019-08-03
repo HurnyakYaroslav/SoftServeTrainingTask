@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.Comparator;
 
-public class Employee {
+public class Employee implements Serializable {
     private String name;
 private Wage wage = new Wage();
 

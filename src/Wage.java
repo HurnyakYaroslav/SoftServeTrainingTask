@@ -1,4 +1,6 @@
-public class Wage {
+import java.io.Serializable;
+
+public class Wage implements Serializable {
     private WageType wageType;
    private double salary;
 

@@ -1,3 +1,4 @@
+import java.io.*;
 import java.util.*;
 
 public class Market {
@@ -25,5 +26,36 @@ public class Market {
 
 };
 
+  public void writeEmployeesIntoFile(){
+String  fileName = new String(System.getProperty("user.dir") + "/MyCollection.bin");
+try{
+    FileOutputStream fo = new FileOutputStream(fileName);
+    ObjectOutputStream oos = new ObjectOutputStream(fo);
+    oos.writeObject(employees);
+    fo.close();
+}
+catch(IOException ex){
+    System.out.println("Can`t open file for writing");
+    ex.printStackTrace();
+}
+  }
+
+  public void readEmployeesFromFile(){
+      String  fileName = new String(System.getProperty("user.dir") + "/MyCollection.bin");
+      try {
+          FileInputStream fis = new FileInputStream(fileName);
+          ObjectInputStream ois = new ObjectInputStream(fis);
+//          SerializableClass employees_sub;
+//          employees_sub = (SerializableClass) ois.readObject();
+//          employees.addAll(employees_sub.list);
+//          employees.addAll(((SerializableClass) ois.readObject()).getList());  WRONG
+          employees = (((LinkedList<Employee>) ois.readObject()));
+          fis.close();
+      }
+      catch (Exception ex){
+          System.out.println("Can`t open file for reading");
+          ex.printStackTrace();
+      }
+  }
 
 }

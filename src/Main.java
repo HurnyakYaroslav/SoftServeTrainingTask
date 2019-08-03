@@ -3,16 +3,21 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 Market market = new Market();
-for(int i = 0; i<25; i++){
-    market.getEmployees().add(new Employee((Integer.toString(i+5)), i+5.0, WageType.HOURLY));
-}
 
-        for(int i = 0; i<25; i++){
-             market.getEmployees().add(new Employee((Integer.toString(i+5)),(i + 5.0), WageType.FIXED));
-        }
-        System.out.println("Average monthly salary is: " + (int)market.getAverageMonthlySalary());
+market.readEmployeesFromFile();
+
+//for(int i = 0; i<25; i++){
+//    market.getEmployees().add(new Employee((Integer.toString(i+5)), i+5.0, WageType.HOURLY));
+//}
+
+
+//        for(int i = 0; i<25; i++){
+//             market.getEmployees().add(new Employee((Integer.toString(i+5)),(i + 5.0), WageType.FIXED));
+//        }
+//        System.out.println("Average monthly salary is: " + (int)market.getAverageMonthlySalary());
 
      //   Problem A
+
         Collections.sort(market.getEmployees(), new Comparator<Employee>() {
             @Override
             public int compare(Employee o1, Employee o2) {
@@ -36,12 +41,9 @@ for(int i = 0; i<25; i++){
             for(int i = 0; i<3;i++){
                 System.out.println(it.previous().hashCode());
         }
-
-
-
-
-
-
+//Reading and writing objects into file
+        market.writeEmployeesIntoFile();
+        System.out.println("Present Project Directory : "+ System.getProperty("user.dir"));
     }
 
 }
