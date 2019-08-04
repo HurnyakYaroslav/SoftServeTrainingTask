@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-Market market = new Market();
+ Market market = new Market();
 
 market.readEmployeesFromFile();
 
@@ -42,8 +42,11 @@ market.readEmployeesFromFile();
                 System.out.println(it.previous().hashCode());
         }
 //Reading and writing objects into file
-        market.writeEmployeesIntoFile();
-        System.out.println("Present Project Directory : "+ System.getProperty("user.dir"));
+        Saving saving = new Saving();
+            saving.getSavingForm(market);
+//        market.writeEmployeesIntoFile();
+//      System.out.println("Present Project Directory : "+ System.getProperty("user.dir"));
     }
+
 
 }

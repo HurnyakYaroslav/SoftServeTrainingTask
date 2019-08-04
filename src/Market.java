@@ -40,6 +40,29 @@ catch(IOException ex){
 }
   }
 
+
+  public void writeEmployeesIntoFile(String name){
+try{
+    if(!name.matches("^[a-zA-Z1-9]+\\.bin")){
+        System.out.println(name);
+        throw new IncorrectFileName("Name_Error");
+    }
+    String  fileName = new String(System.getProperty("user.dir") + "/"+ name);
+    File file = new File(fileName);
+    FileOutputStream fo = new FileOutputStream(fileName);
+    ObjectOutputStream oos = new ObjectOutputStream(fo);
+    oos.writeObject(employees);
+    fo.close();
+}
+catch(IOException ex){
+    System.out.println("Can`t open file for writing");
+    ex.printStackTrace();
+}
+catch (IncorrectFileName ifn){
+    System.out.println("IncorrectFileName: ");
+}
+  }
+
   public void readEmployeesFromFile(){
       String  fileName = new String(System.getProperty("user.dir") + "/MyCollection.bin");
       try {
