@@ -14,7 +14,8 @@ market.readEmployeesFromFile();
 //        for(int i = 0; i<25; i++){
 //             market.getEmployees().add(new Employee((Integer.toString(i+5)),(i + 5.0), WageType.FIXED));
 //        }
-//        System.out.println("Average monthly salary is: " + (int)market.getAverageMonthlySalary());
+
+        System.out.println("Average monthly salary is: " + (int)market.getAverageMonthlySalary());
 
      //   Problem A
 

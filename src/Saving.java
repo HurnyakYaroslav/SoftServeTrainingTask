@@ -26,7 +26,7 @@ public class Saving {
 //        jFrame.add(Component.)
         jPanel.add(textField);
         jPanel.add(name_area);
-        name_area.setBounds(50,50, 50,30);
+
 
         submit.addActionListener(new ActionListener() {
             @Override
@@ -37,7 +37,7 @@ public class Saving {
         jPanel.add(submit);
         jPanel.setBounds(0,70, jFrame.getWidth(), jFrame.getHeight()-70);
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
-        jFrame.setSize(dimension.width/2, dimension.height/3);
+        jFrame.setBounds(dimension.width/2-300, dimension.height/3, 800, 300);
         jFrame.setVisible(true);
 
 
