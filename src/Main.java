@@ -6,14 +6,14 @@ public class Main {
 
 market.readEmployeesFromFile();
 
-//for(int i = 0; i<25; i++){
-//    market.getEmployees().add(new Employee((Integer.toString(i+5)), i+5.0, WageType.HOURLY));
-//}
+        for(int i = 0; i<25; i++){
+            market.insertEmployee((Integer.toString(i+5)), i+5.0, WageType.HOURLY);
+        }
 
 
-//        for(int i = 0; i<25; i++){
-//             market.getEmployees().add(new Employee((Integer.toString(i+5)),(i + 5.0), WageType.FIXED));
-//        }
+        for(int i = 0; i<25; i++){
+             market.insertEmployee(Integer.toString(i+5),(i + 5.0), WageType.FIXED);
+        }
 
         System.out.println("Average monthly salary is: " + (int)market.getAverageMonthlySalary());
 
@@ -39,9 +39,9 @@ market.readEmployeesFromFile();
 
         //Reading and writing objects into file
         Saving saving = new Saving();
-            saving.getSavingForm(market);
-//        market.writeEmployeesIntoFile();
-//      System.out.println("Present Project Directory : "+ System.getProperty("user.dir"));
+        saving.getSavingForm(market);
+        market.writeEmployeesIntoFile();
+        System.out.println("Present Project Directory : "+ System.getProperty("user.dir"));
     }
 
 

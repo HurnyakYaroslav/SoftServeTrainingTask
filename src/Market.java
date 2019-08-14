@@ -32,7 +32,7 @@ public class Market {
 };
 
   public void writeEmployeesIntoFile(){
-String  fileName = new String(System.getProperty("user.dir") + "/MyCollection.bin");
+String  fileName = (System.getProperty("user.dir") + "/MyCollection.bin");
 try{
     FileOutputStream fo = new FileOutputStream(fileName);
     ObjectOutputStream oos = new ObjectOutputStream(fo);
@@ -94,6 +94,12 @@ catch (IncorrectFileName ifn){
       for(int j=0; j<numberToPrint;j++){
           System.out.println(it.previous().hashCode());
       }
+  }
+
+  public Employee insertEmployee(String name, Double salary, WageType wageType){
+      Employee employee = new Employee(name, salary, wageType);
+      this.getEmployees().add(employee);
+      return employee;
   }
 
 }
