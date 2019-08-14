@@ -1,3 +1,8 @@
 public enum WageType {
-    FIXED, HOURLY
+    FIXED{
+
+    },
+    HOURLY{
+
+    }
 }

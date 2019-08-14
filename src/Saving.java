@@ -28,12 +28,7 @@ public class Saving {
         jPanel.add(name_area);
 
 
-        submit.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                market.writeEmployeesIntoFile(name_area.getText());
-            }
-        });
+        submit.addActionListener(e -> market.writeEmployeesIntoFile(name_area.getText()));
         jPanel.add(submit);
         jPanel.setBounds(0,70, jFrame.getWidth(), jFrame.getHeight()-70);
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();

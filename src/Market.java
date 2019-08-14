@@ -13,16 +13,21 @@ public class Market {
 
     public double getAverageMonthlySalary(){
     double result = 0;
-
     for(Employee i: employees){
-        if(i.getWage().getWageType() == WageType.HOURLY) result+=20.8*8*i.getSalary();
-        else if (i.getWage().getWageType() == WageType.FIXED) result+= i.getSalary();
-        else {
-            System.out.println("Wrong class");
-            return 0;
+        switch (i.getWage().getWageType()){
+            case FIXED:
+                result+= i.getSalary();
+                break;
+            case HOURLY:
+                result+=20.8*8*i.getSalary();
+                break;
+            default:
+                System.out.println("Wrong class");
+                return 0;
         }
     }
-    return result/(employees.size());
+    result/=employees.size();
+    return result;
 
 };
 
@@ -40,15 +45,13 @@ catch(IOException ex){
 }
   }
 
-
   public void writeEmployeesIntoFile(String name){
 try{
     if(!name.matches("^[a-zA-Z1-9]+\\.bin")){
-        System.out.println(name);
         throw new IncorrectFileName("Name_Error");
     }
-    String  fileName = new String(System.getProperty("user.dir") + "/"+ name);
-    File file = new File(fileName);
+    String  fileName = System.getProperty("user.dir") + "/"+ name;
+    new File(fileName);
     FileOutputStream fo = new FileOutputStream(fileName);
     ObjectOutputStream oos = new ObjectOutputStream(fo);
     oos.writeObject(employees);
@@ -59,25 +62,37 @@ catch(IOException ex){
     ex.printStackTrace();
 }
 catch (IncorrectFileName ifn){
-    System.out.println("IncorrectFileName: ");
+    System.out.println("IncorrectFileName: " + name);
 }
   }
 
   public void readEmployeesFromFile(){
-      String  fileName = new String(System.getProperty("user.dir") + "/MyCollection.bin");
+      String  fileName = System.getProperty("user.dir") + "/MyCollection.bin";
       try {
           FileInputStream fis = new FileInputStream(fileName);
           ObjectInputStream ois = new ObjectInputStream(fis);
-//          SerializableClass employees_sub;
-//          employees_sub = (SerializableClass) ois.readObject();
-//          employees.addAll(employees_sub.list);
-//          employees.addAll(((SerializableClass) ois.readObject()).getList());  WRONG
           employees = (((LinkedList<Employee>) ois.readObject()));
           fis.close();
       }
       catch (Exception ex){
           System.out.println("Can`t open file for reading");
           ex.printStackTrace();
+      }
+  }
+
+
+  public void printEmployees(int numberToPrint){
+      ListIterator<Employee> it = this.getEmployees().listIterator();
+      for(int j=0; j<numberToPrint;j++){
+          System.out.println(it.next());
+      }
+  }
+
+  public void printInfoAboutReverseEmployees(int numberToPrint){
+      ListIterator<Employee> it = this.getEmployees().listIterator();
+      while(it.hasNext()) it.next();
+      for(int j=0; j<numberToPrint;j++){
+          System.out.println(it.previous().hashCode());
       }
   }
 
